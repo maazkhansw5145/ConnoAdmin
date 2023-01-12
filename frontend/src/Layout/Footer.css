@@ -1,0 +1,30 @@
+.footer {
+  z-index: 10;
+  position: static;
+  bottom: 0px;
+  width: 100vw;
+  background-color: rgb(45, 45, 45);
+  color: #fff;
+  min-height: 60px;
+}
+
+.copyright {
+  float: left;
+  padding-left: 5%;
+
+  padding-top: 18px;
+}
+
+.socialLinks {
+  float: right;
+  padding-right: 5%;
+  padding-top: 10px;
+}
+
+.icons {
+  margin-left: 15px;
+  padding: 2px;
+}
+.icons:hover {
+  cursor: pointer;
+}
