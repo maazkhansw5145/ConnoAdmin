@@ -5,7 +5,7 @@ import url from "../Config/URL";
 import OfferCard from "../components/OfferCard";
 import { toast } from "react-toastify";
 import Loading from "../components/Loading";
-
+import "./ProfitTracker.css";
 function Offers(props) {
   const [offers, setOffers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ function Offers(props) {
       getOffers();
     }
   }, [props.auth, offersType]);
-console.log(offersType)
+  console.log(offersType);
   const getOffers = async () => {
     // let token = await JSON.parse(window.localStorage.getItem("persist:auth"))
     //   .token;
@@ -68,7 +68,7 @@ console.log(offersType)
   };
 
   const orderUp = (order) => {
-    console.log("ORDER",order)
+    console.log("ORDER", order);
     fetch(`${url}/offer/order/up/${offersType}/${order}`, {
       method: "PUT",
       headers: {
@@ -86,13 +86,13 @@ console.log(offersType)
         progress: undefined,
         theme: "colored",
       });
-      setLoading(true)
+      setLoading(true);
       getOffers();
     });
   };
 
   const orderDown = (order) => {
-    console.log(order)
+    console.log(order);
     fetch(`${url}/offer/order/down/${offersType}/${order}`, {
       method: "PUT",
       headers: {
@@ -110,7 +110,7 @@ console.log(offersType)
         progress: undefined,
         theme: "colored",
       });
-      setLoading(true)
+      setLoading(true);
 
       getOffers();
     });
@@ -121,7 +121,7 @@ console.log(offersType)
   }
 
   return (
-    <div>
+    <div className="profitTracker">
       <div style={{ display: "flex", margin: 15 }}>
         <div style={{ marginLeft: "auto" }}>
           <select

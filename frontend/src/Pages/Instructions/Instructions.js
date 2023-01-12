@@ -5,7 +5,7 @@ import url from "../../Config/URL";
 import InstructionsCard from "../../components/InstructionsCard";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading";
-
+import '../ProfitTracker.css'
 function Instructions(props) {
   const [instructions, setInstructions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -120,7 +120,7 @@ function Instructions(props) {
   }
 
   return (
-    <div>
+    <div className="profitTracker">
       <div style={{ display: "flex", margin: 15 }}>
         <div style={{ marginLeft: "auto" }}>
           <select

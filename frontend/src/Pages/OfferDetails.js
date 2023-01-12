@@ -1,9 +1,9 @@
 import React from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
-
+import './ProfitTracker.css'
 function OfferDetails(props) {
   return (
-    <div>
+    <div className="profitTracker" style={{marginBottom:30}}>
       <div style={{ textAlign: "left", margin: "30px 45px" }}>
         <h2>{props.location.query.title}</h2>
         <p>{props.location.query.description}</p>
@@ -17,12 +17,14 @@ function OfferDetails(props) {
           margin: "15px auto",
         }}
       >
+        <div style={{display:'flex',justifyContent:'center'}}>
         <img
-          width={"100%"}
-          height={280}
+          width={192}
+          height={138}
           src={props.location.query.image}
-          alt="offer"
+          alt="Instruction"
         />
+        </div>
          {props.location.query.details_link && (
           <a
             href={props.location.query.details_link}
