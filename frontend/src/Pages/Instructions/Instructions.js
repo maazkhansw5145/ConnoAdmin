@@ -176,7 +176,7 @@ function Instructions(props) {
             padding: 8,
             borderRadius: 10,
             width: 580,
-            margin: "16px 30px 17px",
+            margin: "20px auto",
           }}
         >
           <h3 style={{ textAlign: "start", marginLeft: 15 }}>

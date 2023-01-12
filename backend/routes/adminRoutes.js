@@ -23,6 +23,7 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/users/profits/", async (req, res) => {
+  
   UserSchema.find()
     .select(["email", "profit_tracker"])
     .then((profit) => {
@@ -35,7 +36,7 @@ router.get("/users/profits/", async (req, res) => {
 });
 
 router.get("/offers/:type", (req, res) => {
-  console.log(req.params.type )
+  console.log(req.params.type);
   OfferSchema.find({ type: req.params.type })
     .sort("order")
     .then((offers) => {
@@ -187,13 +188,13 @@ router.post(
       },
       async function (err, result) {
         if (err) {
-          console.log(err)
+          console.log(err);
           return res.status(500).json({
             error: err,
           });
         }
         if (result) {
-          console.log(result)
+          console.log(result);
           return res.status(200).json(result.secure_url);
         }
       }
@@ -294,6 +295,5 @@ router.put("/instructions/order/down/:type/:order", (req, res) => {
       return res.status(400).json(err);
     });
 });
-
 
 module.exports = router;
