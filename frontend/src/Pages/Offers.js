@@ -18,8 +18,9 @@ function Offers(props) {
       getOffers();
     }
   }, [props.auth, offersType]);
-  console.log(offersType);
+  
   const getOffers = async () => {
+    console.log("GETTINGOFFERS")
     // let token = await JSON.parse(window.localStorage.getItem("persist:auth"))
     //   .token;
     fetch(`${url}/offers/${offersType}`, {

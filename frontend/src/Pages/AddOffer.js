@@ -96,6 +96,8 @@ function AddOffer(props) {
     return <Loading />;
   }
 
+console.log(detailed_description)
+
   return (
     <div
       style={{

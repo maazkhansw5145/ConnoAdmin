@@ -1,13 +1,41 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
-import '../ProfitTracker.css'
+import "../ProfitTracker.css";
+import Loading from "../../components/Loading";
+import url from "../../Config/URL";
 function InstructionsDetails(props) {
-  console.log(props.location.query)
+  const [details, setDetails] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  const getDetails = () => {
+    fetch(`${url}/instruction/details/${props.match.params.id}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((details) => {
+          setDetails(details);
+          setLoading(false);
+        });
+      }
+    });
+  };
+
+  if (loading) {
+    <Loading />;
+  }
   return (
-    <div className="profitTracker" style={{marginBottom:30}}>
+    <div className="profitTracker" style={{ marginBottom: 30 }}>
       <div style={{ textAlign: "left", margin: "30px 45px" }}>
-        <h2>{props.location.query.title}</h2>
-        <p>{props.location.query.description}</p>
+        <h2>{details.title}</h2>
+        <p>{details.description}</p>
       </div>
       <div
         style={{
@@ -18,17 +46,17 @@ function InstructionsDetails(props) {
           margin: "15px auto",
         }}
       >
-       <div style={{display:'flex',justifyContent:'center'}}>
-        <img
-          width={192}
-          height={138}
-          src={props.location.query.image}
-          alt="Instruction"
-        />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            width={192}
+            height={138}
+            src={details.image}
+            alt="Instruction"
+          />
         </div>
-         {props.location.query.details_link && (
+        {details.details_link && (
           <a
-            href={props.location.query.details_link}
+            href={details.details_link}
             style={{ textDecoration: "none" }}
             target="_blank"
           >
@@ -58,11 +86,21 @@ function InstructionsDetails(props) {
             textTransform: "uppercase",
             fontWeight: 600,
             letterSpacing: ".05em",
+
+            fontSize: 14,
+            fontFamily: "none",
           }}
         >
           Detailed Description
         </h2>
-        <p>{props.location.query.detailed_description}</p>
+        <pre
+          style={{
+            whiteSpace: "pre-wrap",
+            textAlign:'left'
+          }}
+        >
+          {details.detailed_description}
+        </pre>
       </div>
     </div>
   );

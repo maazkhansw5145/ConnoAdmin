@@ -1,4 +1,5 @@
-const url = 'http://localhost:4001';
-// const url = "https://git.heroku.com/buyerserver.git";
+// const url = 'http://localhost:4001';
+const url = 'https://po-admin.onrender.com';
+
 
 export default url;

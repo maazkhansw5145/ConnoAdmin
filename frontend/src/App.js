@@ -21,6 +21,7 @@ import UpdateInstructions from './Pages/Instructions/UpdateInstructions'
 import NavBar from "./Layout/NavBar";
 import Footer from "./Layout/Footer";
 import ProfitTracker from "./Pages/ProfitTracker";
+import PremiumUsers from "./Pages/PremiumUsers";
 
 function App() {
   return (
@@ -51,6 +52,11 @@ function App() {
                 exact
                 path="/instructions/details/:id"
                 component={InstructionsDetails}
+              />
+               <Route
+                exact
+                path="/premium/users/"
+                component={PremiumUsers}
               />
             </Switch>
             <Footer />

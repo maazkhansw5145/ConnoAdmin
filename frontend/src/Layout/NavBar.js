@@ -36,6 +36,17 @@ function NavBar(props) {
             Profit Tracker
           </NavLink>
           <NavLink
+            to="/premium/users"
+            className="title"
+            exact
+            activeStyle={{
+              color: "coral",
+              textDecoration: "overline",
+            }}
+          >
+            Premium Users
+          </NavLink>
+          <NavLink
             to="/offers"
             className="title"
             exact

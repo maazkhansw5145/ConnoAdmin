@@ -65,7 +65,7 @@ console.log(profits)
               </TableRow>
             </TableHead>
             <TableBody>
-              {profits.map((profit, index) => {
+              {profits.length !== 0 && profits.map((profit, index) => {
                 return (
                   <TableRow key={index}>
                     <TableCell align="center">{profit.email}</TableCell>
